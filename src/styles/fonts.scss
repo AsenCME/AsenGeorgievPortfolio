@@ -1,0 +1,58 @@
+$font_path: "/assets/fonts/";
+
+@font-face {
+	font-family: "Monoton";
+	src: url($font_path+"Monoton-Regular.tff");
+	font-style: normal;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url($font_path+"Montserrat-ExtraBold.tff");
+	font-style: normal;
+	font-weight: 800;
+}
+@font-face {
+	font-family: "Montserrat";
+	src: url($font_path+"Montserrat-SemiBold.tff");
+	font-style: normal;
+	font-weight: 600;
+}
+@font-face {
+	font-family: "Montserrat";
+	src: url($font_path+"Montserrat-Bold.tff");
+	font-style: normal;
+	font-weight: 700;
+}
+@font-face {
+	font-family: "Montserrat";
+	src: url($font_path+"Montserrat-Medium.tff");
+	font-style: normal;
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: "Montserrat";
+	src: url($font_path+"Montserrat-Regular.tff");
+	font-style: normal;
+	font-weight: 400;
+}
+@font-face {
+	font-family: "Montserrat";
+	src: url($font_path+"Montserrat-Light.tff");
+	font-style: normal;
+	font-weight: 300;
+}
+@font-face {
+	font-family: "Montserrat";
+	src: url($font_path+"Montserrat-ExtraLight.tff");
+	font-style: normal;
+	font-weight: 200;
+}
+@font-face {
+	font-family: "Montserrat";
+	src: url($font_path+"Montserrat-Thin.tff");
+	font-style: normal;
+	font-weight: 100;
+}
