@@ -1,0 +1,197 @@
+.hub {
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: #303030;
+}
+
+.overlay {
+	position: absolute;
+	z-index: 5;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: #303030;
+	display: none;
+
+	&.trans {
+		display: block;
+		animation: transAnim 0.6s forwards ease-in-out;
+	}
+}
+
+@keyframes transAnim {
+	0% {
+		background-color: #303030;
+		opacity: 0;
+	}
+	1% {
+		background-color: #303030;
+		opacity: 0;
+	}
+	100% {
+		background-color: #000;
+		opacity: 1;
+	}
+}
+
+.rects {
+	.rect-1 {
+		background-color: #3a3a3a;
+		position: absolute;
+		z-index: 1;
+		transform-origin: top right;
+		width: 100%;
+		height: 100%;
+		top: 0%;
+		transform: rotate(-90deg) scaleX(2);
+
+		animation: slideR1 2s 0.3s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+	}
+	.rect-2 {
+		background-color: #424242;
+		position: absolute;
+		z-index: 2;
+		transform-origin: top right;
+		width: 100%;
+		height: 100%;
+		top: 10%;
+		transform: rotate(-90deg) scaleX(2);
+
+		animation: slideR2 2s 0.5s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+	}
+}
+
+@keyframes slideR1 {
+	0% {
+		top: 0%;
+		transform: rotate(-90deg) scaleX(2);
+	}
+	100% {
+		top: -5%;
+		transform: rotate(-20deg) scaleX(2);
+	}
+}
+@keyframes slideR2 {
+	0% {
+		transform: rotate(-90deg) scaleX(2);
+	}
+	100% {
+		transform: rotate(-30deg) scaleX(2);
+	}
+}
+
+.bio {
+	z-index: 3;
+	position: absolute;
+	font-size: 3vh;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 500;
+	color: #fff;
+	width: 55vw;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+
+	animation: fade 1s 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes fade {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -70%) scale(1);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(-50%, -50%) scale(1);
+	}
+}
+
+.buttons {
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+
+	.projects-btn,
+	.contacts-btn {
+		cursor: pointer;
+		font-size: 2.5vh;
+		position: absolute;
+		top: 50%;
+		z-index: 4;
+		background-color: #c4c4c4;
+		padding: 15px 40px;
+		padding-bottom: 0px;
+		transition: 0.3s ease-in-out;
+
+		&:hover {
+			height: 250px;
+			img {
+				width: 40px;
+				height: 40px;
+				margin-top: 0px;
+				animation: bob 1s 0.6s infinite ease-in-out;
+			}
+		}
+
+		img {
+			position: relative;
+			width: 30px;
+			height: 30px;
+			transform: rotate(-90deg) translateY(-50%);
+			margin-top: -5px;
+			left: 50%;
+			transition: 0.3s ease-in-out;
+		}
+	}
+	.projects-btn {
+		height: 200px;
+		left: 0px;
+		transform: translateY(-50%) translateX(-165%) rotate(90deg);
+		animation: slidePB 0.6s 2s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+	}
+	.contacts-btn {
+		height: 200px;
+		right: 0px;
+		transform: translateY(-50%) translateX(165%) rotate(-90deg);
+		animation: slideCB 0.6s 2s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+	}
+}
+
+@keyframes slidePB {
+	0% {
+		transform: translateY(-50%) translateX(-165%) rotate(90deg);
+	}
+	100% {
+		transform: translateY(-50%) translateX(-65%) rotate(90deg);
+	}
+}
+@keyframes slideCB {
+	0% {
+		transform: translateY(-50%) translateX(165%) rotate(-90deg);
+	}
+	100% {
+		transform: translateY(-50%) translateX(65%) rotate(-90deg);
+	}
+}
+
+@keyframes bob {
+	0% {
+		margin-top: 0px;
+	}
+	25% {
+		margin-top: 20px;
+	}
+	50% {
+		margin-top: 5px;
+	}
+	75% {
+		margin-top: 10px;
+	}
+	100% {
+		margin-top: 0px;
+	}
+}
