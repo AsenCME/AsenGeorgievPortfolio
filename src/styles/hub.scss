@@ -127,16 +127,6 @@
 		padding-bottom: 0px;
 		transition: 0.3s ease-in-out;
 
-		&:hover {
-			height: 250px;
-			img {
-				width: 40px;
-				height: 40px;
-				margin-top: 0px;
-				animation: bob 1s 0.6s infinite ease-in-out;
-			}
-		}
-
 		img {
 			position: relative;
 			width: 30px;
@@ -146,18 +136,66 @@
 			left: 50%;
 			transition: 0.3s ease-in-out;
 		}
+
+		//=== On Hover
+		&:hover {
+			height: 250px;
+			img {
+				width: 40px;
+				height: 40px;
+				margin-top: 0px;
+				animation: bob 1.2s 0.6s infinite ease-in-out;
+			}
+		}
+
+		.trans-block {
+			z-index: 10;
+			position: absolute;
+			width: 0%;
+			height: 101%;
+			margin-top: -1%;
+			background-color: #c4c4c4;
+			top: 0px;
+			left: 50%;
+			transform: translateX(-50%);
+			transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.6s ease-in-out;
+		}
+
+		&.cb-trans,
+		&.pb-trans {
+			z-index: 15;
+			cursor: auto;
+			transition: 1.5s cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
+			height: 400%;
+
+			.trans-block {
+				width: 500%;
+			}
+		}
 	}
 	.projects-btn {
 		height: 200px;
 		left: 0px;
 		transform: translateY(-50%) translateX(-165%) rotate(90deg);
 		animation: slidePB 0.6s 2s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+
+		&.pb-trans {
+			.trans-block {
+				background-color: #fff;
+			}
+		}
 	}
 	.contacts-btn {
 		height: 200px;
 		right: 0px;
 		transform: translateY(-50%) translateX(165%) rotate(-90deg);
 		animation: slideCB 0.6s 2s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+
+		&.cb-trans {
+			.trans-block {
+				background-color: #0c1c25;
+			}
+		}
 	}
 }
 
