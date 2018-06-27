@@ -45,7 +45,7 @@
 
 		<div class="fancy-text">
 			<div v-for="n in rows" :key="n" class="row hidden">
-				<span v-for="k in cols" :key="k">{{projectName}}</span>
+				<span v-for="k in cols" :key="k">yuitex eood</span>
 			</div>
 		</div>
 	</div>
