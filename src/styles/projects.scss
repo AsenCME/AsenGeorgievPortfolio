@@ -136,7 +136,7 @@
 	z-index: 5;
 	position: absolute;
 	width: 100%;
-	bottom: 75px;
+	bottom: 50px;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -164,7 +164,7 @@
 		padding: 10px 15px;
 		padding-left: 25px;
 		border: 1px solid #bd1111; // XXX: Main Color
-		border-radius: 70px;
+		border-radius: 0px;
 		font-family: "Roboto Condensed";
 		font-weight: 300;
 		text-transform: uppercase;
@@ -185,10 +185,10 @@
 			top: 0px;
 			left: 0px;
 			width: 100%;
-			height: 100%;
+			height: 120%;
 			background-color: #bd1111; // XXX: Main Color
 			z-index: -1;
-			transform: translateX(-100%);
+			transform: translateY(-100%);
 			transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
 		}
 
@@ -204,7 +204,10 @@
 
 		&.concealed {
 			margin: 0px;
-			transform: translateY(100%);
+			transform: translateY(120%);
+			.mask {
+				transform: translateY(10%);
+			}
 		}
 	}
 
@@ -253,31 +256,30 @@
 		overflow: hidden;
 		display: flex;
 		.line {
-			margin-top: 10px;
 			display: inline-block;
 			width: 8vw;
 			height: 5px;
 			background-color: black;
 			transform-origin: left;
-			transform: scaleX(1);
+			transform: scaleX(1) translateY(200%);
 			transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 
 			&.hidden {
-				transform: scaleX(0);
+				transform: scaleX(0) translateY(200%);
 			}
 		}
 		.text {
 			max-height: 500px;
 			overflow: auto;
-			margin-left: 10px;
+			margin-left: 20px;
 			display: inline-block;
-			width: calc(100% - (8vw + 10px));
+			width: calc(100% - (8vw + 20px));
 			font-family: "Montserrat";
 			color: #444;
 			line-height: 150%;
 			font-size: 20px;
 			transform: translateY(0%);
-			transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0.6s;
+			transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 
 			&.hidden {
 				transform: translateY(-110%);
@@ -286,36 +288,129 @@
 	}
 }
 
+// Presentation Images
 .mockup {
-	z-index: 2;
-	position: absolute;
-	top: 50%;
-	transform: translateY(-55%);
+	z-index: 3;
 
 	img {
-		width: 65%;
-		float: right;
-		margin-right: -25%;
-		transform: translateX(0%);
+		position: absolute;
+		height: 70vh;
+		top: 45%;
+		z-index: 6;
+		right: 0px;
+		margin-right: -50vh;
+		transform: translateY(-50%) translateX(0%);
 		opacity: 1;
 		transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+		&.invis {
+			opacity: 0;
+		}
 	}
 
-	.secondary {
-		width: 12.5%;
+	// Specific Styles
+	.yuitexs {
+		height: 55vh;
 		margin: 0px;
-		margin-top: 15%;
-		transform: translateX(80%);
-		transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.4s;
+		margin-top: 8%;
+		right: 50vh;
+		transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
+	}
+	.hotelup,
+	.kosmos {
+		top: 48%;
+		margin-right: -40vh;
+		height: 75vh;
+	}
+	.itschool {
+		top: 50%;
+		margin-right: -15vh;
+	}
+	.mesten {
+		top: 50%;
+		margin-right: 10vh;
+		height: 60vh;
 	}
 
 	&.hidden img {
-		transform: translateX(100%);
+		transform: translateY(-50%) translateX(30%);
 		opacity: 0;
 	}
 
-	&.hidden .secondary {
-		transform: translateX(300%);
+	&.hidden .yuitexs {
+		transform: translateX(100%) translateY(-50%);
+		opacity: 0;
+	}
+}
+
+// Back Button
+.back-button-wrap {
+	.back-button {
+		cursor: pointer;
+		z-index: 2;
+		position: absolute;
+		top: 0px;
+		right: 0px;
+		width: 60px;
+		height: 60px;
+		background-color: black;
+		transform: rotate(30deg) scaleX(6) scaleY(2) translateY(0%);
+		transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+		&.hidden {
+			transform: rotate(30deg) scaleX(6) scaleY(2) translateY(-120%);
+		}
+
+		&:hover {
+			& + .back-arrow {
+				animation: backArrow 1.5s 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+			}
+		}
+	}
+	.back-arrow {
+		cursor: pointer;
+		z-index: 2;
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		transform: translateX(0%);
+		i {
+			color: white;
+			font-size: 40px;
+		}
+		&:hover {
+			animation: backArrow 1.5s 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+		}
+	}
+
+	&.trans {
+		.back-button {
+			cursor: auto;
+			transition: 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+			z-index: 10;
+			background-color: #303030;
+			transform: rotate(0deg) scaleX(1) scaleY(1) translateY(0%);
+			height: 110%;
+			width: 110%;
+		}
+		.back-arrow {
+			transition: 0.3s ease-in-out;
+			opacity: 0;
+		}
+	}
+}
+
+@keyframes backArrow {
+	0% {
+		transform: translateX(0%);
+		opacity: 1;
+	}
+	50% {
+		transform: translateX(0%);
+		opacity: 1;
+	}
+	100% {
+		transform: translateX(150%);
 		opacity: 0;
 	}
 }
