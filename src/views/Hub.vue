@@ -4,12 +4,12 @@
 		<div class="buttons">
 			<div class="projects-btn" @click="clickPB()">
 				<div>Projects</div>
-				<img src="./../assets/chev_right.png">
+				<i class="material-icons">chevron_right</i>
 				<div class="trans-block"></div>
 			</div>
 			<div class="contacts-btn" @click="clickCB()">
 				<div>Contacts</div>
-				<img src="./../assets/chev_right.png">
+				<i class="material-icons">chevron_right</i>
 				<div class="trans-block"></div>
 			</div>
 		</div>

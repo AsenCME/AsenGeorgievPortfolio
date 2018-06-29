@@ -3,7 +3,11 @@
 
 		<!-- Left panel + Numbers -->
 		<div class="left-panel hidden">
+			<div class="message">scroll</div>
 			<div class="numbers">
+				<div class="upward hidden" @click="swapProject(1)">
+					<i class="material-icons">arrow_upward</i>
+				</div>
 				<div class="current">
 					<div class="text" v-text="currentNumber + 1"></div>
 				</div>
@@ -11,6 +15,9 @@
 				</div>
 				<div class="total">
 					<div v-text="totalNumber"></div>
+				</div>
+				<div class="downward hidden" @click="swapProject(-1)">
+					<i class="material-icons">arrow_downward</i>
 				</div>
 			</div>
 		</div>
@@ -82,6 +89,7 @@ export default {
 	name: "projects",
 	data() {
 		return {
+			hasScrolled: false,
 			rows: 20,
 			cols: 4,
 			currentNumber: 0,
@@ -225,8 +233,21 @@ export default {
 			document.querySelector(".back-button").classList.add("hidden");
 		},
 
+		// Arrows Controls
+		revealArrows() {
+			document.querySelector(".upward").classList.remove("hidden");
+			document.querySelector(".downward").classList.remove("hidden");
+		},
+		concealArrows() {
+			document.querySelector(".upward").classList.add("hidden");
+			document.querySelector(".downward").classList.add("hidden");
+		},
+
 		// MouseWheel Scroll Handler
 		MouseWheelHandler(e) {
+			// Hide after first time
+			document.querySelector(".message").classList.add("remove");
+
 			e = window.event || e;
 			let delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
 			this.swapProject(delta);
@@ -240,10 +261,12 @@ export default {
 			this.slideImageRight();
 			this.concealFancyText();
 			this.concealBackButton();
+			this.concealArrows();
 
 			setTimeout(() => {
 				this.currentNumber = this.mod(this.currentNumber - direction, this.totalNumber);
 
+				this.revealArrows();
 				this.revealMainText();
 				this.revealButton();
 				this.slideTitleUp();
@@ -262,6 +285,7 @@ export default {
 		// Animate Everything In
 		setTimeout(() => {
 			this.revealBackButton();
+			this.revealArrows();
 		}, 2000);
 		setTimeout(() => {
 			this.slideImageLeft();

@@ -28,6 +28,10 @@
 			<div class="card-shape gmail hidden">
 				<img src="./../assets/icons/Gmail.png">
 			</div>
+			<div class="prompt">
+				<i class="material-icons">expand_less</i>
+				click me
+			</div>
 		</div>
 	</div>
 </template>
@@ -42,6 +46,8 @@ export default {
 			}, 1500);
 		},
 		toggleMenu() {
+			document.querySelector(".prompt").classList.add("remove");
+
 			let circle = document.querySelector(".circle-menu");
 			let cards = document.querySelectorAll(".card-shape");
 
