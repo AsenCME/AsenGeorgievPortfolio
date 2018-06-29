@@ -17,17 +17,17 @@
 
 		<!-- Title/Alias -->
 		<div class="title">
-			<div class="text hidden" v-text="currentProject.title"></div>
+			<div class="text hidden" v-text="currentProject.title" :style="{'color': currentProject.color}"></div>
 			<div class="line hidden"></div>
 		</div>
 
 		<!-- View Project Button -->
 		<div class="button-wrap">
 			<div class="left-line hidden"></div>
-			<div class="button concealed">
+			<div class="button concealed" :style="{'border-color': currentProject.color}">
 				visit online
 				<i class="material-icons">chevron_right</i>
-				<div class="mask"></div>
+				<div class="mask" :style="{'background-color': currentProject.color}"></div>
 			</div>
 			<div class="right-line hidden"></div>
 
@@ -36,7 +36,7 @@
 		<!-- Main Text + Desc + Line -->
 		<div class="main-text">
 			<div class="cname">
-				<div class="text hidden" v-text="currentProject.name"></div>
+				<div class="text hidden" v-text="currentProject.name" :style="{'color': currentProject.color}"></div>
 			</div>
 
 			<div class="description">
@@ -91,26 +91,31 @@ export default {
 					name: "Yuitex EOOD",
 					title: "Clothing Store in Blagoevgrad",
 					description: "Yuitex EOOD is a project.",
+					color: "#bd1111",
 				},
 				{
 					name: "HotelUp",
 					title: "The first Bulgarian hotel App",
 					description: "HotelUp is a project",
+					color: "#2EBDAB",
 				},
 				{
 					name: "IT'School",
 					title: "It's cool to learn from ITSchool",
 					description: "IT'School is a project",
+					color: "#8BC34A",
 				},
 				{
-					name: "Mesten Inc.",
+					name: "Mesten",
 					title: "Find Local Doctors Quickly",
 					description: "Mesten Inc. is a project",
+					color: "#5A9BD5",
 				},
 				{
 					name: "Kosmos",
 					title: "Explore the Solar System",
 					description: "Kosmos is a project",
+					color: "#D8A03E",
 				},
 			],
 		};
