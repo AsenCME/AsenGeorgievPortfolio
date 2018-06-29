@@ -190,7 +190,7 @@
 		color: #000;
 		font-size: 10vh;
 		opacity: 0;
-		transform: rotate(360deg);
+		transform: rotate(360deg) scale(0.5);
 		transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 	}
 
@@ -201,18 +201,34 @@
 		transform: rotate(45deg);
 		border-radius: 5px;
 		background-color: #fff;
+
+		&:hover {
+			&::before {
+				display: none;
+				top: -10px;
+				left: -10px;
+				right: -10px;
+				bottom: -10px;
+				border-radius: 5px;
+			}
+			i {
+				transition-delay: 0s;
+				transform: rotate(45deg) scale(1.2);
+			}
+		}
 		.circle {
 			transform: scale(0) rotate(45deg);
 		}
 		i {
 			opacity: 1;
-			transform: rotate(45deg);
 			transition-delay: 0.8s;
+			transform: rotate(45deg) scale(1);
 		}
 	}
 }
 
 .card-shape {
+	cursor: pointer;
 	position: absolute;
 	width: 17vh;
 	height: 17vh;
@@ -220,20 +236,12 @@
 	border-radius: 5px;
 	opacity: 1;
 	z-index: 0;
-	transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
+	transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
-	&:hover {
-		transition: 0.2s ease-in-out 0s !important;
-		width: 18vh;
-		height: 18vh;
-		img {
-			opacity: 0;
-		}
-	}
 
 	img {
 		transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -241,12 +249,16 @@
 		height: 141%;
 	}
 
+	// Specific Styles fro socials
 	&.facebook {
-		transform: rotate(45deg) translate(0, 120%);
+		transform: rotate(45deg) translate(0, 120%) scale(1);
 		background-color: #3c5a99;
-
 		img {
 			transform: rotate(-45deg);
+		}
+		&:hover {
+			transition-delay: 0s;
+			transform: rotate(45deg) translate(0, 120%) scale(1.1);
 		}
 	}
 	&.twitter {
@@ -255,12 +267,20 @@
 		img {
 			transform: rotate(-45deg);
 		}
+		&:hover {
+			transition-delay: 0s;
+			transform: rotate(45deg) translate(0, -120%) scale(1.1);
+		}
 	}
 	&.github {
 		transform: rotate(-45deg) translate(0, 120%);
 		background-color: #161614;
 		img {
 			transform: rotate(45deg);
+		}
+		&:hover {
+			transition-delay: 0s;
+			transform: rotate(-45deg) translate(0, 120%) scale(1.1);
 		}
 	}
 	&.gmail {
@@ -269,8 +289,13 @@
 		img {
 			transform: rotate(45deg);
 		}
+		&:hover {
+			transition-delay: 0s;
+			transform: rotate(-45deg) translate(0, -120%) scale(1.1);
+		}
 	}
 
+	// When card is hidden
 	&.hidden {
 		width: 0vh;
 		height: 0vh;
