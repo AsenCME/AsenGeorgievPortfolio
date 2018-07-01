@@ -1,16 +1,16 @@
 .contacts,
-.overlay {
+.overlay,
+.background {
 	width: 100%;
 	height: 100%;
 	top: 0px;
 	left: 0px;
 	background-color: #0c1c25;
 }
-.contacts {
+.background {
 	z-index: 0;
 	background-size: cover;
 	background-position: center;
-	background-image: url("./../assets/images/flow.png");
 }
 
 .overlay {

@@ -387,7 +387,7 @@
 .mockup {
 	z-index: 3;
 
-	img {
+	.image {
 		position: absolute;
 		width: 60vw;
 		top: 45%;
@@ -428,7 +428,7 @@
 		width: 25vw;
 	}
 
-	&.hidden img {
+	&.hidden .image {
 		transform: translateY(-50%) translateX(30%);
 		opacity: 0;
 	}

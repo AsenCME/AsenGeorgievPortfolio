@@ -54,16 +54,16 @@
 
 		<!-- Mockups (images) -->
 		<div class="mockup hidden">
-			<img :class="{invis: currentNumber !== 0}" src="./../assets/mockups/Yuitex_L.png">
-			<img :class="{invis: currentNumber !== 0}" class="yuitexs" src="./../assets/mockups/Yuitex_S.png">
+			<progressive-img :class="{invis: currentNumber !== 0}" class="image" :src="require('./../assets/mockups/Yuitex_L.png')" />
+			<progressive-img :class="{invis: currentNumber !== 0}" class="image yuitexs" :src="require('./../assets/mockups/Yuitex_S.png')" />
 
-			<img :class="{invis: currentNumber !== 1}" class="hotelup" src="./../assets/mockups/HU_L.png">
+			<progressive-img :class="{invis: currentNumber !== 1}" class="image hotelup" :src="require('./../assets/mockups/HU_L.png')" />
 
-			<img :class="{invis: currentNumber !== 2}" class="itschool" src="./../assets/mockups/ITSchool.png">
+			<progressive-img :class="{invis: currentNumber !== 2}" class="image itschool" :src="require('./../assets/mockups/ITSchool.png')" />
 
-			<img :class="{invis: currentNumber !== 3}" class="mesten" src="./../assets/mockups/Mesten_D.png">
+			<progressive-img :class="{invis: currentNumber !== 3}" class="image mesten" :src="require('./../assets/mockups/Mesten_D.png')" />
 
-			<img :class="{invis: currentNumber !== 4}" class="kosmos" src="./../assets/mockups/Kosmos_L.png">
+			<progressive-img :class="{invis: currentNumber !== 4}" class="image kosmos" :src="require('./../assets/mockups/Kosmos_L.png')" />
 		</div>
 
 		<!-- Button to go Back -->
@@ -280,31 +280,35 @@ export default {
 		mod(n, m) {
 			return (n % m + m) % m;
 		},
+
+		showInititalContent() {
+			setTimeout(() => {
+				this.revealBackButton();
+				this.revealArrows();
+			}, 2000);
+			setTimeout(() => {
+				this.slideImageLeft();
+			}, 1800);
+			setTimeout(() => {
+				this.revealTitle();
+			}, 1500);
+			setTimeout(() => {
+				this.revealMainText();
+			}, 1200);
+			setTimeout(() => {
+				this.revealButton();
+			}, 1000);
+			setTimeout(() => {
+				this.revealFancyText();
+			}, 500);
+			setTimeout(() => {
+				this.revealPanel();
+			}, 500);
+		},
 	},
 	created() {
 		// Animate Everything In
-		setTimeout(() => {
-			this.revealBackButton();
-			this.revealArrows();
-		}, 2000);
-		setTimeout(() => {
-			this.slideImageLeft();
-		}, 1800);
-		setTimeout(() => {
-			this.revealTitle();
-		}, 1500);
-		setTimeout(() => {
-			this.revealMainText();
-		}, 1200);
-		setTimeout(() => {
-			this.revealButton();
-		}, 1000);
-		setTimeout(() => {
-			this.revealFancyText();
-		}, 500);
-		setTimeout(() => {
-			this.revealPanel();
-		}, 500);
+		this.showInititalContent();
 
 		// Set current Project
 		this.totalNumber = this.projects.length;

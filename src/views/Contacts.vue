@@ -1,5 +1,6 @@
 <template>
 	<div class="contacts">
+		<progressive-background :src="require('./../assets/images/flow.png')" class="background" />
 		<div class="overlay"></div>
 
 		<div class="back-button ">

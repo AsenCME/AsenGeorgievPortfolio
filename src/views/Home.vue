@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="background"></div>
+    <progressive-background :src="require('./../assets/images/background.png')" class="background" />
     <div class="text">
       <div class="f-name">
         <span>asen</span>
@@ -39,28 +39,28 @@
 <script>
 /* eslint-disable */
 export default {
-  name: "home",
-  methods: {
-    MouseWheelHandler(e){
-      e = window.event || e;
-      let delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
-      if(delta === -1) this.transition();
-    },
-    transition(){
-      document.querySelector('.transition-panel').classList.add('pull-up');
-      setTimeout(() => {
-        this.$router.push({ path: '/hub' });
-      }, 600);
-    }
-  },
-  created(){
-    window.addEventListener('mousewheel', this.MouseWheelHandler, false);
-    window.addEventListener('DOMMouseWheel', this.MouseWheelHandler, false);
-  },
-  destroyed(){
-    window.removeEventListener('mousewheel', this.MouseWheelHandler, false);
-    window.removeEventListener('DOMMouseWheel', this.MouseWheelHandler, false);
-  }
+	name: "home",
+	methods: {
+		MouseWheelHandler(e) {
+			e = window.event || e;
+			let delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+			if (delta === -1) this.transition();
+		},
+		transition() {
+			document.querySelector(".transition-panel").classList.add("pull-up");
+			setTimeout(() => {
+				this.$router.push({ path: "/hub" });
+			}, 600);
+		},
+	},
+	created() {
+		window.addEventListener("mousewheel", this.MouseWheelHandler, false);
+		window.addEventListener("DOMMouseWheel", this.MouseWheelHandler, false);
+	},
+	destroyed() {
+		window.removeEventListener("mousewheel", this.MouseWheelHandler, false);
+		window.removeEventListener("DOMMouseWheel", this.MouseWheelHandler, false);
+	},
 };
 </script>
 
