@@ -68,6 +68,9 @@ export default {
 		window.removeEventListener("mousewheel", this.MouseWheelHandler, false);
 		window.removeEventListener("DOMMouseWheel", this.MouseWheelHandler, false);
 	},
+	beforeCreate() {
+		if (this.$store.state.isMobile) this.$router.push({ path: "/" });
+	},
 };
 </script>
 

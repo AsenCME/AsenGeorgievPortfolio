@@ -7,12 +7,14 @@
 <script>
 export default {
 	created() {
+		let breakpoint = 950;
+
 		let width = window.innerWidth;
-		if (width <= 768) this.$store.commit("setMobileState", true);
+		if (width <= breakpoint) this.$store.commit("setMobileState", true);
 		else this.$store.commit("setMobileState", false);
 		window.onresize = evt => {
 			width = window.innerWidth;
-			if (width <= 768) this.$store.commit("setMobileState", true);
+			if (width <= breakpoint) this.$store.commit("setMobileState", true);
 			else this.$store.commit("setMobileState", false);
 		};
 	},
