@@ -54,12 +54,12 @@ export default {
 		},
 	},
 	created() {
-		window.addEventListener("mousewheel", this.MouseWheelHandler, false);
-		window.addEventListener("DOMMouseWheel", this.MouseWheelHandler, false);
+		window.addEventListener("mousewheel", this.MouseWheelHandler, { passive: true });
+		window.addEventListener("DOMMouseWheel", this.MouseWheelHandler, { passive: true });
 	},
 	destroyed() {
-		window.removeEventListener("mousewheel", this.MouseWheelHandler, false);
-		window.removeEventListener("DOMMouseWheel", this.MouseWheelHandler, false);
+		window.removeEventListener("mousewheel", this.MouseWheelHandler, { passive: true });
+		window.removeEventListener("DOMMouseWheel", this.MouseWheelHandler, { passive: true });
 	},
 };
 </script>

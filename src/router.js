@@ -14,21 +14,25 @@ export default new Router({
 			path: "/",
 			name: "home",
 			component: Home,
+			meta: { title: "Asen Georgiev - Portfolio" },
 		},
 		{
 			path: "/hub",
 			name: "hub",
 			component: Hub,
+			meta: { title: "AG | Hub" },
 		},
 		{
 			path: "/contacts",
 			name: "contacts",
 			component: Contacts,
+			meta: { title: "AG | Contacts" },
 		},
 		{
 			path: "/projects",
 			name: "projects",
 			component: Projects,
+			meta: { title: "AG | Projects" },
 		},
 	],
 });

@@ -122,6 +122,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	// background-color: rgba(#000, 0.2);
+
 	transform: scale(0);
 
 	animation: 1.5s zoomIn cubic-bezier(0.165, 0.84, 0.44, 1) 1s forwards;
