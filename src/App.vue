@@ -1,12 +1,23 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+	<div id="app">
+		<router-view></router-view>
+	</div>
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<script>
+export default {
+	created() {
+		let width = window.innerWidth;
+		if (width <= 768) this.$store.commit("setMobileState", true);
+		else this.$store.commit("setMobileState", false);
+		window.onresize = evt => {
+			width = window.innerWidth;
+			if (width <= 768) this.$store.commit("setMobileState", true);
+			else this.$store.commit("setMobileState", false);
+		};
+	},
+};
+</script>
 
 
 <style lang="scss">
