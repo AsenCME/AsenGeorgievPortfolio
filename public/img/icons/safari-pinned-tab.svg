@@ -6,17 +6,4 @@
  preserveAspectRatio="xMidYMid meet">
  <metadata>
 Created by Asen Georgiev.
-</metadata>
-<defs>
-<style>.cls-1,.cls-2{fill:#231f20;}.cls-2{stroke:#231f20;}.cls-2,.cls-3{stroke-linejoin:round;}.cls-3{fill:#fff;stroke:#fff;}</style>
-</defs>
-<title>Asset 32</title>
-<g id="Layer_2" data-name="Layer 2">
-<g id="Layer_1-2" data-name="Layer 1">
-<rect class="cls-1" width="145.06" height="145.06" rx="10.06" ry="10.06"/>
-<path class="cls-2" d="M8.35,99"/>
-<path class="cls-3" d="M126.79,120.85h-6.51l-5-8.67L67.78,29.09h0l2.14-3.71a2.34,2.34,0,0,1,4,0l54.55,92.48A2,2,0,0,1,126.79,120.85Z"/>
-<path class="cls-3" d="M18.26,120.85a2,2,0,0,1-1.72-3L60.05,42.47l5-8.66,5,8.66-2.5,4.34-.27.47-2.23,3.86L49.82,77.51l-5,8.66L31.55,108.89a2,2,0,0,0,1.69,3H96.81a2,2,0,0,0,1.75-3L88.87,91.89a2.07,2.07,0,0,0-1.79-1h-36a2,2,0,0,1-1.69-2.93l2.94-5.1a2,2,0,0,1,1.69-1h39l5.08,8.8L110.39,112l5.09,8.81Z"/>
-</g>
-</g>
-</svg>
+</metadata><defs><style>.cls-1,.cls-2{fill:#231f20;}.cls-2{stroke:#231f20;}.cls-2,.cls-3{stroke-linejoin:round;}.cls-3{fill:#fff;stroke:#fff;}</style></defs><title>Asset 34</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><rect class="cls-1" width="145.06" height="145.06" rx="10.06" ry="10.06"/><path class="cls-2" d="M7.35,99.76"/><path class="cls-3" d="M128.79,122.35h-6.51l-6-11.67L68.78,27.59h0l2.14-3.71a2.34,2.34,0,0,1,4,0l55.55,95.48A2,2,0,0,1,128.79,122.35Z"/><path class="cls-3" d="M16.26,122.35a2,2,0,0,1-1.72-3L58.05,44l5-8.66,5,8.66-2.5,4.34-.27.47-2.23,3.86L47.82,79l-5,8.66L29.55,110.39a2,2,0,0,0,1.69,3H94.81a2,2,0,0,0,1.75-3L86.87,93.39a2.07,2.07,0,0,0-1.79-1h-31a2,2,0,0,1-1.69-2.93l2.94-5.1a2,2,0,0,1,1.69-1h34l5.08,8.8,12.24,21.39,5.09,8.81Z"/></g></g></svg>
