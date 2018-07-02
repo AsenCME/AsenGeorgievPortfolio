@@ -17,16 +17,16 @@
 				<i class="material-icons">close</i>
 				<div class="circle"></div>
 			</div>
-			<div class="card-shape facebook hidden">
+			<div class="card-shape facebook hidden" @click="goto('https://www.facebook.com/asen.georgiev.3720', true)">
 				<img src="./../assets/icons/Facebook.png">
 			</div>
-			<div class="card-shape twitter hidden">
+			<div class="card-shape twitter hidden" @click="goto('https://twitter.com/asen_tweet', true)">
 				<img src="./../assets/icons/Twitter.png">
 			</div>
-			<div class="card-shape github hidden">
+			<div class="card-shape github hidden" @click="goto('https://github.com/AsenCME' , true)">
 				<img src="./../assets/icons/Github.png">
 			</div>
-			<div class="card-shape gmail hidden">
+			<div class="card-shape gmail hidden" @click="goto('mailto:asen.connor.69@gmail.com?Subject=Hello!', false)">
 				<img src="./../assets/icons/Gmail.png">
 			</div>
 			<div class="prompt">
@@ -40,6 +40,10 @@
 <script>
 export default {
 	methods: {
+		goto(link, blank) {
+			if (blank) window.open(link, "_blank");
+			else window.location.href = link;
+		},
 		transitionBack() {
 			document.querySelector(".back-button").classList.add("trans");
 			setTimeout(() => {

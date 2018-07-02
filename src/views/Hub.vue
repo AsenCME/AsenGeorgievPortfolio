@@ -18,16 +18,24 @@
 			<div class="rect-2"></div>
 		</div>
 		<div class="bio">
-			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+			Hi! My name is Asen Georgiev. I am a {{age}}-year-old student from
+			<span @click="gotoMap()">Blagoevgrad, Bulgaria</span>. Right now you are looking at the website I made myself. In my virtual protfolio you will find some projects I worked on professionally, one project that got admitted to the final round on the National IT Olympiad in Bulgaria, as well as the first ever project I did. You are also encouraged to check out my contacts page, where you will find different ways to contact me and some of my profiles on social media. Use those contacts to get in touch with me, then we can grab a drink, talk about projects and let's work on one together.
 		</div>
-
 	</div>
 </template>
 
 <script>
 export default {
 	name: "hub",
+	computed: {
+		age() {
+			return new Date(new Date() - new Date(2000, 8, 8)).getFullYear() - 1970;
+		},
+	},
 	methods: {
+		gotoMap() {
+			window.open("https://www.google.com/maps/search/?api=1&query=Blagoevgrad", "_blank");
+		},
 		MouseWheelHandler(e) {
 			e = window.event || e;
 			let delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));

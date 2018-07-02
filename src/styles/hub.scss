@@ -84,6 +84,7 @@
 }
 
 .bio {
+	line-height: 140%;
 	z-index: 3;
 	position: absolute;
 	font-size: 3vh;
@@ -97,6 +98,15 @@
 	opacity: 0;
 
 	animation: fade 1s 1s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+
+	span {
+		text-decoration: underline;
+		font-weight: 600;
+		&:hover {
+			opacity: 0.7;
+			cursor: pointer;
+		}
+	}
 }
 
 @keyframes fade {

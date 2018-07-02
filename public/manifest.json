@@ -1,5 +1,5 @@
 {
-	"name": "AGSoftworks",
+	"name": "AG Softworks",
 	"short_name": "AGS",
 	"icons": [
 		{
@@ -13,27 +13,27 @@
 			"type": "image/png"
 		},
 		{
-			"src": "/img/icons/apple-touch-60x60.png",
+			"src": "/img/icons/apple-touch-icon-60x60.png",
 			"sizes": "60x60",
 			"type": "image/png"
 		},
 		{
-			"src": "/img/icons/apple-touch-76x76.png",
+			"src": "/img/icons/apple-touch-icon-76x76.png",
 			"sizes": "76x76",
 			"type": "image/png"
 		},
 		{
-			"src": "/img/icons/apple-touch-120x120.png",
+			"src": "/img/icons/apple-touch-icon-120x120.png",
 			"sizes": "120x120",
 			"type": "image/png"
 		},
 		{
-			"src": "/img/icons/apple-touch-152x152.png",
+			"src": "/img/icons/apple-touch-icon-152x152.png",
 			"sizes": "152x152",
 			"type": "image/png"
 		},
 		{
-			"src": "/img/icons/apple-touch-180x180.png",
+			"src": "/img/icons/apple-touch-icon-180x180.png",
 			"sizes": "180x180",
 			"type": "image/png"
 		},
@@ -55,6 +55,7 @@
 	],
 	"start_url": "/index.html",
 	"display": "standalone",
+	"orientation": "portrait",
 	"background_color": "#000",
 	"theme_color": "#0c1c25"
 }
