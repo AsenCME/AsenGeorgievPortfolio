@@ -48,7 +48,7 @@ export default {
 			document.querySelector(".back-button").classList.add("trans");
 			setTimeout(() => {
 				this.$router.push({ path: "/hub" });
-			}, 1500);
+			}, 1000);
 		},
 		toggleMenu() {
 			document.querySelector(".prompt").classList.add("remove");

@@ -8,6 +8,7 @@
 	background-color: #0c1c25;
 }
 .background {
+	position: absolute;
 	z-index: 0;
 	background-size: cover;
 	background-position: center;
@@ -16,6 +17,7 @@
 .overlay {
 	z-index: 10;
 	opacity: 1;
+	display: block;
 	background-color: #0c1c25;
 	animation: fadeOut 1s ease-in-out forwards;
 }
@@ -23,14 +25,20 @@
 @keyframes fadeOut {
 	0% {
 		opacity: 1;
+		display: block;
+	}
+	99% {
+		opacity: 0;
+		display: block;
 	}
 	100% {
 		opacity: 0;
+		display: none;
 	}
 }
 
 .back-button {
-	z-index: 2;
+	z-index: 12;
 	.text {
 		cursor: pointer;
 		position: absolute;
@@ -122,7 +130,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	// background-color: rgba(#000, 0.2);
 
 	transform: scale(0);
 
@@ -351,7 +358,7 @@
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 950px) {
 	.back-button {
 		.text {
 			font-size: 18px;
@@ -363,6 +370,9 @@
 				width: 30px;
 				height: 30px;
 			}
+		}
+		&.trans .shape {
+			background-color: #000000 !important;
 		}
 		.shape {
 			width: 200px;

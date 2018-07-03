@@ -1,5 +1,6 @@
 <template>
 	<div class="overall">
+		<div class="overlay"></div>
 		<div class="home">
 			<progressive-background :src="require('./../assets/images/background-mobile.png')" class="background" />
 			<progressive-background :src="require('./../assets/images/lines.png')" class="lines" />
@@ -21,11 +22,11 @@
 				<span @click="gotoMap()">Blagoevgrad, Bulgaria</span>. Right now you are looking at the website I made myself. In my virtual protfolio you will find some projects I worked on professionally, one project that got admitted to the final round on the National IT Olympiad in Bulgaria, as well as the first ever project I did. You are also encouraged to check out my contacts page, where you will find different ways to contact me and some of my profiles on social media. Use those contacts to get in touch with me, then we can grab a drink, talk about projects and let's work on one together.
 			</div>
 			<div class="buttons">
-				<div class="button" @click="$router.push({path:'/projects'})">
+				<div class="button" @click="goto('/projects')">
 					<i class="material-icons">chevron_left</i>
 					projects
 				</div>
-				<div class="button" @click="$router.push({path:'/contacts'})">
+				<div class="button" @click="goto('/contacts')">
 					contacts
 					<i class="material-icons">chevron_right</i>
 				</div>
@@ -42,6 +43,17 @@ export default {
 		},
 	},
 	methods: {
+		goto(link) {
+			document.documentElement.style.backgroundColor = "#0c1c25";
+			if (link === "/contacts") {
+				document.querySelector(".overall").classList.add("trans");
+			} else {
+				document.querySelector(".overall").classList.add("trans-right");
+			}
+			setTimeout(() => {
+				this.$router.push({ path: link });
+			}, 600);
+		},
 		gotoMap() {
 			window.open("https://www.google.com/maps/search/?api=1&query=Blagoevgrad", "_blank");
 		},
@@ -55,8 +67,9 @@ export default {
 			let animate = () => {
 				currentTime += increment;
 				let val = this.easeInOutQuad(currentTime, start, change, duration);
-				document.querySelector(".overall").scrollTop += val;
-				if (currentTime < duration) {
+				document.documentElement.scrollTop += val;
+				document.body.scrollTop += val;
+				if (currentTime <= duration / 4) {
 					setTimeout(animate, increment);
 				}
 			};
@@ -74,16 +87,46 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.overall {
-	position: relative;
-	width: 100vw;
-	height: 100vh;
+.overlay {
+	z-index: 100;
+	position: fixed;
 	top: 0px;
 	left: 0px;
-	right: 0px;
-	bottom: 0px;
-	overflow: scroll;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	opacity: 1;
+	transform: scale(1);
+
+	animation: fadeOut 0.5s ease-in-out forwards;
 }
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	99% {
+		opacity: 0;
+		transform: scale(1);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(0);
+	}
+}
+
+.overall {
+	background-color: #000000;
+	transform: translateX(0%);
+	transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.trans {
+	transform: translateX(-120%);
+}
+.trans-right {
+	transform: translateX(120%);
+}
+
 // Home Part //
 .home {
 	position: relative;
@@ -132,22 +175,22 @@ export default {
 		font-family: "Monoton";
 		color: #fff;
 		text-transform: uppercase;
-		font-size: 25vw;
-		line-height: 20vw;
+		font-size: 15vh;
+		line-height: 12vh;
 	}
 	.sname {
 		font-family: "Montserrat";
 		font-weight: 500;
 		color: #b2b2b2;
 		text-transform: uppercase;
-		font-size: 15vw;
-		line-height: 15vw;
+		font-size: 8.5vh;
+		line-height: 8vh;
 	}
 	.alias {
 		font-family: "Montserrat";
 		font-weight: 100;
 		color: #fff;
-		font-size: 8vw;
+		font-size: 5vh;
 		align-self: flex-end;
 		margin-right: 10px;
 	}
@@ -163,7 +206,7 @@ export default {
 	font-family: "Montserrat";
 	font-weight: 300;
 	text-transform: uppercase;
-	font-size: 4vw;
+	font-size: 2vh;
 	color: white;
 
 	opacity: 0.6;
@@ -224,9 +267,13 @@ export default {
 	color: white;
 	font-family: "Montserrat";
 	font-weight: 500;
-	width: 90%;
-	font-size: 5vw;
+	width: 80%;
+	font-size: 2.7vh;
 	margin-top: -5vh;
+	span {
+		font-weight: 600;
+		text-decoration: underline;
+	}
 }
 
 .buttons {
@@ -244,21 +291,21 @@ export default {
 		font-family: "Montserrat";
 		font-weight: 500;
 		color: #000;
-		padding: 20px 7.5vw;
+		padding: 20px 0px;
 		text-transform: uppercase;
-		font-size: 4.5vw;
-
-		// justify-content: center;
+		font-size: 2.5vh;
+		justify-content: center;
 		i {
-			font-size: 6vw;
+			font-size: 4vh;
 			color: #000;
 		}
 		&:nth-of-type(1) {
 			border-right: 0.5px solid #ababab;
+			padding-right: 20px;
 		}
 		&:nth-of-type(2) {
 			border-left: 0.5px solid #ababab;
-			justify-content: flex-end;
+			padding-left: 20px;
 		}
 	}
 }
