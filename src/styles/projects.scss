@@ -405,6 +405,18 @@
 	}
 
 	// Specific Styles
+	.chushka {
+		top: 45%;
+		margin-right: -12vw;
+		width: 48vw;
+	}
+	.chushkas {
+		width: 12vw;
+		margin: 0px;
+		margin-top: 8%;
+		right: 30vw;
+		transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.2s;
+	}
 	.yuitexs {
 		width: 12vw;
 		margin: 0px;

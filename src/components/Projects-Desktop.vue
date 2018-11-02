@@ -1,87 +1,91 @@
 <template>
-    <div class="projects">
+	<div class="projects">
 
-        <!-- Left panel + Numbers -->
-        <div class="left-panel hidden">
-            <div class="message">scroll</div>
-            <div class="numbers">
-                <div class="upward hidden" @click="swapProject(1)">
-                    <i class="material-icons">arrow_upward</i>
-                </div>
-                <div class="current">
-                    <div class="text" v-text="currentNumber + 1"></div>
-                </div>
-                <div class="divider">
-                </div>
-                <div class="total">
-                    <div v-text="totalNumber"></div>
-                </div>
-                <div class="downward hidden" @click="swapProject(-1)">
-                    <i class="material-icons">arrow_downward</i>
-                </div>
-            </div>
-        </div>
+		<!-- Left panel + Numbers -->
+		<div class="left-panel hidden">
+			<div class="message">scroll</div>
+			<div class="numbers">
+				<div class="upward hidden" @click="swapProject(1)">
+					<i class="material-icons">arrow_upward</i>
+				</div>
+				<div class="current">
+					<div class="text" v-text="currentNumber + 1"></div>
+				</div>
+				<div class="divider">
+				</div>
+				<div class="total">
+					<div v-text="totalNumber"></div>
+				</div>
+				<div class="downward hidden" @click="swapProject(-1)">
+					<i class="material-icons">arrow_downward</i>
+				</div>
+			</div>
+		</div>
 
-        <!-- Title/Alias -->
-        <div class="title">
-            <div class="text hidden" v-text="currentProject.title" :style="{'color': currentProject.color}"></div>
-            <div class="line hidden"></div>
-        </div>
+		<!-- Title/Alias -->
+		<div class="title">
+			<div class="text hidden" v-text="currentProject.title" :style="{'color': currentProject.color}"></div>
+			<div class="line hidden"></div>
+		</div>
 
-        <!-- View Project Button -->
-        <div class="button-wrap">
-            <div class="left-line hidden"></div>
-            <div class="button concealed" :style="{'border-color': currentProject.color}" @click="viewProject()">
-                visit online
-                <i class="material-icons">chevron_right</i>
-                <div class="mask" :style="{'background-color': currentProject.color}"></div>
-            </div>
-            <div class="right-line hidden"></div>
+		<!-- View Project Button -->
+		<div class="button-wrap">
+			<div class="left-line hidden"></div>
+			<div class="button concealed" :style="{'border-color': currentProject.color}" @click="viewProject()">
+				visit online
+				<i class="material-icons">chevron_right</i>
+				<div class="mask" :style="{'background-color': currentProject.color}"></div>
+			</div>
+			<div class="right-line hidden"></div>
 
-        </div>
+		</div>
 
-        <!-- Main Text + Desc + Line -->
-        <div class="main-text">
-            <div class="cname">
-                <div class="text hidden" v-text="currentProject.name" :style="{'color': currentProject.color}"></div>
-            </div>
+		<!-- Main Text + Desc + Line -->
+		<div class="main-text">
+			<div class="cname">
+				<div class="text hidden" v-text="currentProject.name" :style="{'color': currentProject.color}"></div>
+			</div>
 
-            <div class="description">
-                <div class="line hidden"></div>
-                <div class="text hidden" v-text="currentProject.description"></div>
-            </div>
-        </div>
+			<div class="description">
+				<div class="line hidden"></div>
+				<div class="text hidden" v-text="currentProject.description"></div>
+			</div>
+		</div>
 
-        <!-- Mockups (images) -->
-        <div class="mockup hidden">
-            <progressive-img :class="{invis: currentNumber !== 0}" class="image" :src="require('./../assets/mockups/Yuitex_L.png')" />
-            <progressive-img :class="{invis: currentNumber !== 0}" class="image yuitexs" :src="require('./../assets/mockups/Yuitex_S.png')" />
+		<!-- Mockups (images) -->
+		<div class="mockup hidden">
+			<!-- Shift numbers by one up and also check out projects mobile to adjust class mesten -->
+			<progressive-img :class="{invis: currentNumber !== 0}" class="image chushka" :src="require('./../assets/mockups/Chushka_T.png')" />
+			<progressive-img :class="{invis: currentNumber !== 0}" class="image chushkas" :src="require('./../assets/mockups/Chushka_S.png')" />
 
-            <progressive-img :class="{invis: currentNumber !== 1}" class="image hotelup" :src="require('./../assets/mockups/HU_L.png')" />
+			<progressive-img :class="{invis: currentNumber !== 1}" class="image" :src="require('./../assets/mockups/Yuitex_L.png')" />
+			<progressive-img :class="{invis: currentNumber !== 1}" class="image yuitexs" :src="require('./../assets/mockups/Yuitex_S.png')" />
 
-            <progressive-img :class="{invis: currentNumber !== 2}" class="image itschool" :src="require('./../assets/mockups/ITSchool.png')" />
+			<progressive-img :class="{invis: currentNumber !== 2}" class="image hotelup" :src="require('./../assets/mockups/HU_L.png')" />
 
-            <progressive-img :class="{invis: currentNumber !== 3}" class="image mesten" :src="require('./../assets/mockups/Mesten_D.png')" />
+			<progressive-img :class="{invis: currentNumber !== 3}" class="image itschool" :src="require('./../assets/mockups/ITSchool_T.png')" />
 
-            <progressive-img :class="{invis: currentNumber !== 4}" class="image kosmos" :src="require('./../assets/mockups/Kosmos_L.png')" />
-        </div>
+			<progressive-img :class="{invis: currentNumber !== 4}" class="image mesten" :src="require('./../assets/mockups/Mesten_D.png')" />
 
-        <!-- Button to go Back -->
-        <div class="back-button-wrap">
-            <div class="back-button hidden" @click="transitionBack()"></div>
-            <div class="back-arrow" @click="transitionBack()">
-                <i class="material-icons" @click="transitionBack()">arrow_forward</i>
-            </div>
-        </div>
+			<progressive-img :class="{invis: currentNumber !== 5}" class="image kosmos" :src="require('./../assets/mockups/Kosmos_L.png')" />
+		</div>
 
-        <!-- Background Text -->
-        <div class="fancy-text">
-            <div v-for="n in rows" :key="n" class="row hidden">
-                <span v-for="k in cols" :key="k" v-text="currentProject.name"></span>
-            </div>
-        </div>
+		<!-- Button to go Back -->
+		<div class="back-button-wrap">
+			<div class="back-button hidden" @click="transitionBack()"></div>
+			<div class="back-arrow" @click="transitionBack()">
+				<i class="material-icons" @click="transitionBack()">arrow_forward</i>
+			</div>
+		</div>
 
-    </div>
+		<!-- Background Text -->
+		<div class="fancy-text">
+			<div v-for="n in rows" :key="n" class="row hidden">
+				<span v-for="k in cols" :key="k" v-text="currentProject.name"></span>
+			</div>
+		</div>
+
+	</div>
 </template>
 
 <script>
@@ -94,48 +98,7 @@ export default {
 			cols: 4,
 			currentNumber: 0,
 			totalNumber: 4,
-			projects: [
-				{
-					name: "Yuitex EOOD",
-					title: "Clothing Store in Blagoevgrad",
-					description:
-						"Yuitex is a family firm, which  is devoted to completing orders for uniform and work wear. They aim to offer the best prices, quality service and a standart in our choice of materials. Every query will be completed in a short term and their customers will receive their items at the firm store.",
-					color: "#bd1111",
-					link: "http://yuitex.eu",
-				},
-				{
-					name: "HotelUp",
-					title: "The first Bulgarian hotel App",
-					description:
-						"HotelUp is an application that facilitates the relationship between hotel customers and hotel administration. Equipped with an admin panel to monitor room bookings and SPA reservations, as well as a Chat system for direct connection to your customers. I participated in the final of the IT Olympiad with this project.",
-					color: "#2EBDAB",
-					link: "http://hotelup.eu",
-				},
-				{
-					name: "IT'School",
-					title: "It's cool to learn from ITSchool",
-					description:
-						"IT'School is a project, aiming to encourage studying by providing easy to understand online video classes on subjects suh as Physics, Chemistry, Astronomy and Biology. The interface and User Experience is easily approched and understood by children and young students, who are also the target group of this web platform.",
-					color: "#8BC34A",
-					link: "http://itschool.gimdesign.eu",
-				},
-				{
-					name: "Mesten",
-					title: "Find Local Doctors Quickly",
-					description:
-						"Mesten Inc. is the most convenient way to book a doctors appointment in your city. With two clicks you can select the type of medical help you seek and the town/city/village you desire. You will instantly be presented with contact information for the best professionals in the determined area.",
-					color: "#5A9BD5",
-					link: "http://mesten.gimdesign.eu",
-				},
-				{
-					name: "Kosmos",
-					title: "Explore the Solar System",
-					description:
-						"Kosmos is the first ever project I designed and made myself. The project was completed in 2014 and its only premise was to teach kids about our Solar System. In the website you can also find a 3D animation that takes you on a tour from the sun to the edge of the Solar System and back. Everything in the website is made solely by me.",
-					color: "#D8A03E",
-					link: "http://kosmos.egblg.com",
-				},
-			],
+			projects: this.$store.state.projects,
 		};
 	},
 	computed: {
@@ -279,7 +242,10 @@ export default {
 			this.concealArrows();
 
 			setTimeout(() => {
-				this.currentNumber = this.mod(this.currentNumber - direction, this.totalNumber);
+				this.currentNumber = this.mod(
+					this.currentNumber - direction,
+					this.totalNumber,
+				);
 
 				this.revealArrows();
 				this.revealMainText();
@@ -293,7 +259,7 @@ export default {
 		},
 
 		mod(n, m) {
-			return (n % m + m) % m;
+			return ((n % m) + m) % m;
 		},
 
 		showInititalContent() {

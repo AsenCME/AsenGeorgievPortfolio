@@ -34,7 +34,10 @@ export default {
 	},
 	methods: {
 		gotoMap() {
-			window.open("https://www.google.com/maps/search/?api=1&query=Blagoevgrad", "_blank");
+			window.open(
+				"https://www.google.com/maps/search/?api=1&query=Blagoevgrad",
+				"_blank",
+			);
 		},
 		MouseWheelHandler(e) {
 			e = window.event || e;
@@ -51,13 +54,13 @@ export default {
 			document.querySelector(".projects-btn").classList.add("pb-trans");
 			setTimeout(() => {
 				this.$router.push({ path: "/projects" });
-			}, 2000);
+			}, 800);
 		},
 		clickCB() {
 			document.querySelector(".contacts-btn").classList.add("cb-trans");
 			setTimeout(() => {
 				this.$router.push({ path: "/contacts" });
-			}, 2000);
+			}, 800);
 		},
 	},
 	created() {
