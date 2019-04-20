@@ -1,9 +1,10 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import i18n from "./i18n";
 
 Vue.use(Vuex);
 
-const projects = [
+const projectsEN = [
 	{
 		name: "Chushka EOOD",
 		title: "Restaurant in Blagoevgrad",
@@ -11,7 +12,7 @@ const projects = [
 			"Chushka is not just a spot in town where you can eat. This is a remarkable place with friendly staff where you can enjoy fresh, healthy cooked and absolutely delicious food. The products we use are fresh and carefully selected to give you the best experience and joy of tasting the food.",
 		color: "#0B9444",
 		link: "http://chushka.eu",
-		imgPath: require("./assets/mockups/Chushka_T.png"),
+		imgPath: require("./assets/mockups/Chushka_D.png"),
 	},
 	{
 		name: "Yuitex EOOD",
@@ -35,7 +36,7 @@ const projects = [
 		name: "IT'School",
 		title: "It's cool to learn from ITSchool",
 		description:
-			"IT'School is a project, aiming to encourage studying by providing easy to understand online video classes on subjects suh as Physics, Chemistry, Astronomy and Biology. The interface and User Experience is easily approched and understood by children and young students, who are also the target group of this web platform.",
+			"IT'School is a project, aiming to encourage studying by providing easy to understand online video classes on subjects such as Physics, Chemistry, Astronomy and Biology. The interface and User Experience is easily approched and understood by children and young students, who are also the target group of this web platform.",
 		color: "#8BC34A",
 		link: "http://itschool.gimdesign.eu",
 		imgPath: require("./assets/mockups/ITSchool_T.png"),
@@ -60,15 +61,83 @@ const projects = [
 	},
 ];
 
+const projectsBG = [
+	{
+		name: "Chushka EOOD",
+		title: "Ресторант в Благоевград",
+		description:
+			"Чушка е не просто заведение, а мястото което се отличава с винаги свежа, прясна и здравословно приготвена храна, перфектно обслужване и невероятни авторски специалитети, които няма да срещнете никъде в града. Рецептите ни са повлияни от различни краища на Европа и света, изцяло пречупени през нашия поглед и разбиране за храната. Продуктите, с които готвим са старателно подбрани и съчетани, за да ви предоставят неповторимо удоволствие и преживяване от храненето.",
+		color: "#0B9444",
+		link: "http://chushka.eu",
+		imgPath: require("./assets/mockups/Chushka_D.png"),
+	},
+	{
+		name: "Yuitex EOOD",
+		title: "Магазин за дрехи в Благоевград",
+		description:
+			"Юитекс е семейна фирма, която се занимава с производство на униформено и работно облекло по поръчка. Стараем се да предлагаме най-добрите цени, качествено обслужване и стандарт в избора на материали. Всяка подадена заявка ще се изпълнява в кратък срок и нашите клиенти ще получават своите артикули при посещение в магазина.",
+		color: "#BD1111",
+		link: "http://yuitex.eu",
+		imgPath: require("./assets/mockups/Yuitex_M.png"),
+	},
+	{
+		name: "HotelUp",
+		title: "Първото българско приложение за хотели",
+		description:
+			"HotelUp е мобилно приложение, което осъществява връзката между гостите и администрацията на хотели. Оборудвано с администраторски панел, чрез който може да се следят резервациите за стаи и спа, както и чат система за директна връзка с всеки гост. Това беше проектът, който достигна финала на олимпиадата по ИТ през 2017 год.",
+		color: "#2EBDAB",
+		link: "http://hotelup.eu",
+		imgPath: require("./assets/mockups/HU_L.png"),
+	},
+	{
+		name: "IT'School",
+		title: "It's cool to learn from ITSchool",
+		description:
+			"IT'School е проект, стремящ се да окуражи ученето, като предоставя лесно за разбиране онлайн видео уроци на теми като физика, химия, биология и астрономия. Дизайнът на приложението е ненатрапчив и достатъчно семпъл за малки деца и ученици, които са всъщност основните потребители на платформата.",
+		color: "#8BC34A",
+		link: "http://itschool.gimdesign.eu",
+		imgPath: require("./assets/mockups/ITSchool_T.png"),
+	},
+	{
+		name: "Mesten",
+		title: "Бързо намерете местни доктори",
+		description:
+			"Mesten Inc. е най-лесният начин да запазиш час при доктор в твоя град. Само с два клика избираш вид на медицинската помощ, от която се нуждаеш, и твоят град/село. Веднага бива представен списък с професионалисти в областта, заедно с информация за тях и контакти.",
+		color: "#5A9BD5",
+		link: "http://mesten.gimdesign.eu",
+		imgPath: require("./assets/mockups/Mesten_D.png"),
+	},
+	{
+		name: "Kosmos",
+		title: "Разходете се из Слънчевата Система",
+		description:
+			"Kosmos е първото сайт, по който някога работих. Сайтът бе направен през 2014 и целта му беше да поднесе на посетителите информация за Слънчевата Система по един интересен начин. За а сайта написах сам кратки текстчета за всяка планета, както и по-дълго есе за живота на звездите. За сайта направих и 3D анимация на кратко пътешествие през Слънчевата Система, от Слънцето до Уран и обратно",
+		color: "#D8A03E",
+		link: "http://kosmos.egblg.com",
+		imgPath: require("./assets/mockups/Kosmos_L.png"),
+	},
+];
+
 export default new Vuex.Store({
+	getters: {
+		projects: state => (state.locale === "en" ? projectsEN : projectsBG),
+	},
 	state: {
 		isMobile: false,
-		projects,
+		locale: i18n.locale,
 	},
 	mutations: {
 		setMobileState(state, payload) {
 			state.isMobile = payload;
 		},
+		changeLocale(state, locale) {
+			state.locale = locale;
+			i18n.locale = locale;
+		},
 	},
-	actions: {},
+	actions: {
+		changeLocale(context, locale) {
+			context.commit("changeLocale", locale);
+		},
+	},
 });

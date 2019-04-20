@@ -15,12 +15,10 @@ export default {
 				app.classList.remove("desktop");
 				body.classList.remove("desktop");
 				html.classList.remove("desktop");
-				console.log("You are looking at the mobile version of the website.");
 			} else {
 				app.classList.add("desktop");
 				body.classList.add("desktop");
 				html.classList.add("desktop");
-				console.log("You are you looking at the desktop version of the website.");
 			}
 		},
 	},

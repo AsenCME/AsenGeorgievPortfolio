@@ -6,6 +6,41 @@
 	background-color: #303030;
 }
 
+.lang-switch {
+	animation: fadeSwitch 1s 2s forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+	opacity: 0;
+	z-index: 10;
+	top: 20px;
+	right: 20px;
+	border-radius: 5px;
+	height: 45px;
+	width: 70px;
+	position: absolute;
+	cursor: pointer;
+	box-shadow: 0px 0px 0px 0px #000;
+	transition: 0.2s ease-in-out;
+	background-image: url("./../assets/flags/bg-flag.png");
+	background-position: center;
+	background-size: cover;
+
+	&:hover {
+		box-shadow: 0px 12px 10px -8px #000;
+		transform: translateY(-1px);
+	}
+}
+.bg {
+	background-image: url("./../assets/flags/en-flag.png");
+}
+
+@keyframes fadeSwitch {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 .overlay {
 	position: absolute;
 	z-index: 5;
@@ -158,7 +193,7 @@
 			z-index: 10;
 			position: absolute;
 			width: 0%;
-			height: 101%;
+			height: 110%;
 			margin-top: -1%;
 			background-color: #c4c4c4;
 			top: 0px;
@@ -176,7 +211,7 @@
 			height: 600%;
 
 			.trans-block {
-				width: 500%;
+				width: 600%;
 			}
 		}
 	}
