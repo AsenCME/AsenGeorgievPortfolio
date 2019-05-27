@@ -13,6 +13,9 @@ I upload some of my projects on my portfolio - projects that I have worked on pr
 ## Socials
 
 Facebook - https://www.facebook.com/asen.georgiev.3720
+
 Twitter - https://twitter.com/asen_tweet
+
 Instagram - https://www.instagram.com/askogeorgiev/
+
 LinkedIn - https://www.linkedin.com/in/asen-georgiev-6939b3118/
