@@ -47,6 +47,7 @@ export default {
       return document.documentElement;
     };
     handler().scrollTop = 0;
+    document.documentElement.style.backgroundColor = "#fff";
   },
   methods: {
     visit(link) {
