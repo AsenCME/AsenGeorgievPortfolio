@@ -36,8 +36,17 @@ export default {
     };
   },
   created() {
-    document.documentElement.scrollTop = 0;
-    document.documentElement.style.backgroundColor = "#ffffff";
+    // Handler to maybe fix scroll position for all devices
+    let handler = () => {
+      if ("scrollingElement" in document) {
+        return document.scrollingElement;
+      }
+      if (navigator.userAgent.indexOf("WebKit") != -1) {
+        return document.body;
+      }
+      return document.documentElement;
+    };
+    handler().scrollTop = 0;
   },
   methods: {
     visit(link) {

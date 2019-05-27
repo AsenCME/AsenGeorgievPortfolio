@@ -229,7 +229,7 @@ export default {
   animation: slideInUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) 1.7s forwards;
   .line {
     width: 1px;
-    height: 60px;
+    height: 70px;
     background-color: white;
     margin-top: 5px;
   }

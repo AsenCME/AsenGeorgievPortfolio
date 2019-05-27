@@ -1,117 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106160698-2"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
 
-<head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-106160698-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+			gtag("config", "UA-106160698-2");
+		</script>
+		<meta charset="utf-8" />
+		<meta name="google" content="notranslate" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta
+			name="viewport"
+			content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=nominimal-ui"
+		/>
+		<!--[if IE]><link rel="icon" href="/favicon.ico"/><![endif]-->
+		<link
+			href="https://fonts.googleapis.com/css?family=Monoton|Montserrat:100,300,400,500,600,700,800|Roboto+Condensed:100,300,400|Roboto:300|Kurale:400|Material+Icons"
+			rel="stylesheet"
+		/>
+		<meta name="HandledFriendly" content="true" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-title" content="Asen Georgev Portfolio" />
+		<link rel=apple-touch-icon href=img/icons/apple-touch-icon-152x152.png> <link rel=mask-icon
+		href=img/icons/safari-pinned-tab.svg> <meta name=msapplication-TileImage
+		content=img/icons/msapplication-icon-144x144.png>
+		<meta name="msapplication-TileColor" content="#0c1c25" />
+		<meta name="theme-color" content="#0c1c25" />
+		<meta name="robots" content="index,follow" />
+		<meta property="og:site_name" content="AG Softworks" />
+		<meta property="og:title" content="Asen Georgiev Portfolio | Асен Георгиев Протфолио" />
+		<meta
+			property="og:description"
+			content="The protfolio for website developer and designer Asen Georgiev. Website also goes by the name AG Softworks or AGS for short. I design and develop my things all by myself - web development, web design, UI/UX design, logo design and much more. | Онлайн Протфолиото на Асен Георгиев, уеб дизайнер и разработчик. Сайта също така се нарича и AG Softworks или AGS за по-кратко. Разработвам всичко сам и правя сам дизайна си - Уеб дизайн, уеб разработка, UI/UX дизайн, лого дизайн и още много."
+		/>
+		<meta property=og:url content=http://agsoftworks.com> <meta property=og:image
+		content=http://agsoftworks.com/img/shareimage.png>
+		<title>Asen Georgiev - Portfolio</title>
 
-    gtag('config', 'UA-106160698-2');
-  </script>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no minimal-ui">
-  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Monoton|Montserrat:100,300,400,500,600,700,800|Roboto+Condensed:100,300,400|Roboto:300|Kurale:400|Material+Icons"
-    rel="stylesheet">
-  <meta name="HandledFriendly" content="true">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-touch-fullscreen" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Asen Georgev Portfolio">
-  <link rel="apple-touch-icon" href="img/icons/apple-touch-icon-152x152.png">
-  <link rel="mask-icon" href="img/icons/safari-pinned-tab.svg">
-  <meta name="msapplication-TileImage" content="img/icons/msapplication-icon-144x144.png">
-  <meta name="msapplication-TileColor" content="#0c1c25">
-  <meta name="theme-color" content="#0c1c25">
-  <meta property="og:site_name" content="AG Softworks">
-  <meta property="og:title" content="Asen Georgiev Portfolio | Асен Георгиев Протфолио">
-  <meta property="og:description" content="The protfolio for website developer and designer Asen Georgiev. Website also goes by the name AG Softworks or AGS for short. | Онлайн Протфолиото на Асен Георгиев, уеб дизайнер и разработчик. Сайта също така се нарича и AG Softworks или AGS за по-кратко.">
-  <meta property="og:url" content="http://agsoftworks.com">
-  <meta property="og:image" content="http://agsoftworks.com/img/shareimage.png">
-  <title>Asen Georgiev - Portfolio</title>
+		<style>
+			html,
+			body {
+				padding: 0px;
+				margin: 0px;
+			}
 
-  <style>
-    html,
-    body {
-      padding: 0px;
-      margin: 0px;
-    }
+			.loading-screen {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: black;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				font-size: 30px;
+				color: white;
+				font-family: "Montserrat";
+				font-weight: 500;
+			}
 
-    .loading-screen {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      font-size: 30px;
-      color: white;
-      font-family: 'Montserrat';
-      font-weight: 500;
-    }
+			svg {
+				margin-bottom: 10px;
+				width: 25vmax;
+				height: 25vmax;
+				opacity: 0;
+				transform: scale(0.95);
+				animation: logo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s infinite alternate;
+			}
 
-    svg {
-      margin-bottom: 10px;
-      width: 25vmax;
-      height: 25vmax;
-      opacity: 0;
-      transform: scale(0.95);
-      animation: logo 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) 0.1s infinite alternate;
-    }
+			@keyframes logo {
+				0% {
+					opacity: 0.7;
+					transform: scale(0.95);
+				}
 
-    @keyframes logo {
-      0% {
-        opacity: 0.7;
-        transform: scale(0.95);
-      }
+				100% {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+		</style>
+	</head>
 
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <noscript>
-    <strong>We're sorry but client doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-  </noscript>
-  <div id="app">
-    <div class="loading-screen">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.52 97.63">
-        <defs>
-          <style>
-            .cls-1 {
-              fill: #fff;
-              stroke: #fff;
-              stroke-linejoin: round;
-            }
-          </style>
-        </defs>
-        <title>Logo</title>
-        <g id="Layer_2" data-name="Layer 2">
-          <g id="Layer_1-2" data-name="Layer 1">
-            <path class="cls-1" d="M111,97.13h-6.51l-5-8.67L52,5.38h0l2.14-3.71a2.34,2.34,0,0,1,4,0l54.55,92.48A2,2,0,0,1,111,97.13Z" />
-            <path class="cls-1" d="M2.49,97.13a2,2,0,0,1-1.72-3L44.29,18.76l5-8.66,5,8.66-2.5,4.34-.27.47-2.23,3.86L34.06,53.8l-5,8.66L15.78,85.18a2,2,0,0,0,1.69,3H81a2,2,0,0,0,1.75-3L73.11,68.18a2.07,2.07,0,0,0-1.79-1h-36a2,2,0,0,1-1.69-2.93l2.94-5.1a2,2,0,0,1,1.69-1h39l5.08,8.8L94.63,88.33l5.09,8.81Z" />
-            <path class="cls-1" d="M49.29,10.1" />
-            <path class="cls-1" d="M49.29,10.1" />
-            <path class="cls-1" d="M49.29,10.1" />
-            <path class="cls-1" d="M49.29,10.1" />
-          </g>
-        </g>
-      </svg>
-      LOADING
-    </div>
-  </div>
-  <!-- built files will be auto injected -->
-</body>
-
+	<body>
+		<noscript>
+			<strong
+				>We're sorry but client doesn't work properly without JavaScript enabled. Please
+				enable it to continue.</strong
+			>
+		</noscript>
+		<div id="app">
+			<div class="loading-screen">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 113.52 97.63">
+					<defs>
+						<style>
+							.cls-1 {
+								fill: #fff;
+								stroke: #fff;
+								stroke-linejoin: round;
+							}
+						</style>
+					</defs>
+					<title>Logo</title>
+					<g id="Layer_2" data-name="Layer 2">
+						<g id="Layer_1-2" data-name="Layer 1">
+							<path
+								class="cls-1"
+								d="M111,97.13h-6.51l-5-8.67L52,5.38h0l2.14-3.71a2.34,2.34,0,0,1,4,0l54.55,92.48A2,2,0,0,1,111,97.13Z"
+							/>
+							<path
+								class="cls-1"
+								d="M2.49,97.13a2,2,0,0,1-1.72-3L44.29,18.76l5-8.66,5,8.66-2.5,4.34-.27.47-2.23,3.86L34.06,53.8l-5,8.66L15.78,85.18a2,2,0,0,0,1.69,3H81a2,2,0,0,0,1.75-3L73.11,68.18a2.07,2.07,0,0,0-1.79-1h-36a2,2,0,0,1-1.69-2.93l2.94-5.1a2,2,0,0,1,1.69-1h39l5.08,8.8L94.63,88.33l5.09,8.81Z"
+							/>
+							<path class="cls-1" d="M49.29,10.1" />
+							<path class="cls-1" d="M49.29,10.1" />
+							<path class="cls-1" d="M49.29,10.1" />
+							<path class="cls-1" d="M49.29,10.1" />
+						</g>
+					</g>
+				</svg>
+				LOADING
+			</div>
+		</div>
+		<!-- built files will be auto injected -->
+	</body>
 </html>
