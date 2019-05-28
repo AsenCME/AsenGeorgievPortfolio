@@ -190,22 +190,22 @@ export default {
     font-family: "Monoton";
     color: #fff;
     text-transform: uppercase;
-    font-size: 15vh;
-    line-height: 12vh;
+    font-size: 28vw;
+    line-height: 25vw;
   }
   .sname {
     font-family: "Montserrat";
     font-weight: 500;
     color: #b2b2b2;
     text-transform: uppercase;
-    font-size: 8.5vh;
-    line-height: 8vh;
+    font-size: 16vw;
+    line-height: 15vw;
   }
   .alias {
     font-family: "Montserrat";
     font-weight: 100;
     color: #fff;
-    font-size: 5vh;
+    font-size: 10vw;
     align-self: flex-end;
     margin-right: 10px;
   }
@@ -283,7 +283,7 @@ export default {
   font-family: "Montserrat";
   font-weight: 500;
   width: 80%;
-  font-size: 2.7vh;
+  font-size: 2.5vh;
   margin-top: -5vh;
   span {
     font-weight: 600;
@@ -308,7 +308,7 @@ export default {
     color: #000;
     padding: 20px 0px;
     text-transform: uppercase;
-    font-size: 2.5vh;
+    font-size: 18px;
     justify-content: center;
     i {
       font-size: 4vh;

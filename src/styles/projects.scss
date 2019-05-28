@@ -398,11 +398,10 @@
 		transform: translateY(-50%) translateX(0%);
 		opacity: 1;
 		transition: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-
-		&.invis {
-			opacity: 0;
-			// pointer-events: none;
-		}
+		pointer-events: none;
+	}
+	.invis {
+		opacity: 0;
 	}
 
 	// Specific Styles

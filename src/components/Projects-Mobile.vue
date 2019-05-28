@@ -6,12 +6,13 @@
       <i class="material-icons">arrow_forward</i>
     </div>
 
-    <div class="project" v-for="(project, index) of projects" :key="project.projectId">
+    <div class="project" v-for="project of projects" :key="project.projectId">
       <div class="title" :style="{'color': project.color}">
         <span>{{project.title}}</span>
       </div>
-      <div class="image" :class="{'twoPhones': index === 4 || index == 0}">
-        <progressive-img :src="project.imgPath" />
+      <div class="image" :class="{'twoPhones': project.projectId === 'CHU006' || project.projectId === 'MES002'}">
+        <progressive-img v-if="project.imgPath" :src="project.imgPath" />
+        <progressive-img v-if="project.mobileImgPath" :src="project.mobileImgPath" />
       </div>
       <div class="name" :style="{'color': project.color}">{{project.name}}</div>
       <div class="description">
@@ -35,18 +36,11 @@ export default {
       projects: this.$store.getters.projects
     };
   },
-  created() {
-    // Handler to maybe fix scroll position for all devices
-    let handler = () => {
-      if ("scrollingElement" in document) {
-        return document.scrollingElement;
-      }
-      if (navigator.userAgent.indexOf("WebKit") != -1) {
-        return document.body;
-      }
-      return document.documentElement;
+  mounted() {
+    window.onbeforeunload = function() {
+      window.scrollTo(0, 0);
     };
-    handler().scrollTop = 0;
+    window.scrollTo(0, 0);
     document.documentElement.style.backgroundColor = "#fff";
   },
   methods: {

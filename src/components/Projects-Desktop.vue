@@ -55,19 +55,12 @@
     <!-- Mockups (images) -->
     <div class="mockup hidden">
       <!-- Shift numbers by one up and also check out projects mobile to adjust class mesten -->
-      <progressive-img :class="{invis: currentProject.projectId !== 'CHU001'}" class="image chushka" :src="currentProject.desktopImgPath1" />
-      <progressive-img :class="{invis: currentProject.projectId !== 'CHU001'}" class="image chushkas" :src="currentProject.desktopImgPath2" />
 
-      <progressive-img :class="{invis: currentProject.projectId !== 'YUI002'}" class="image" :src="currentProject.desktopImgPath1" />
-      <progressive-img :class="{invis: currentProject.projectId !== 'YUI002'}" class="image yuitexs" :src="currentProject.desktopImgPath2" />
-
-      <progressive-img :class="{invis: currentProject.projectId !== 'HOT003'}" class="image hotelup" :src="currentProject.imgPath" />
-
-      <progressive-img :class="{invis: currentProject.projectId !== 'ITS004'}" class="image itschool" :src="currentProject.imgPath" />
-
-      <progressive-img :class="{invis: currentProject.projectId !== 'MES005'}" class="image mesten" :src="currentProject.imgPath" />
-
-      <progressive-img :class="{invis: currentProject.projectId !== 'KOS006'}" class="image kosmos" :src="currentProject.imgPath" />
+      <div v-for="image in $store.getters.allImages" :key="image.imgId" :class="{invis: currentProject.projectId !== image.imgId}">
+        <progressive-img v-if="image.standard" class="image" :class="image.class1" :src="image.standard" />
+        <progressive-img v-if="image.desktopBig" class="image" :class="image.class1" :src="image.desktopBig" />
+        <progressive-img v-if="image.desktopSmall" class="image" :class="image.class2" :src="image.desktopSmall" />
+      </div>
     </div>
 
     <!-- Button to go Back -->
@@ -101,6 +94,13 @@ export default {
       projects: this.$store.getters.projects || [],
       currentProject: this.$store.getters.projects[0]
     };
+  },
+  computed: {
+    hideClass(imageId) {
+      return {
+        invis: this.currentProject.projectId == imageId
+      };
+    }
   },
   methods: {
     // Go to Website Function

@@ -1,7 +1,6 @@
 <template>
   <div id="app" class="desktop">
-    <h1 v-if="!$store.getters.loadedState">Getting data...</h1>
-    <router-view v-if="$store.getters.loadedState"></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -37,9 +36,6 @@ export default {
         else this.$store.commit("setMobileState", false);
         this.checkForHome();
       };
-    },
-    async getAllProjects() {
-      await this.$store.dispatch("getAllProjects");
     }
   },
   mounted() {
@@ -47,7 +43,6 @@ export default {
   },
   created() {
     this.init();
-    this.getAllProjects();
   },
   watch: {
     $route(value) {
