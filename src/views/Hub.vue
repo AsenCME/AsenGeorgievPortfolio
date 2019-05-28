@@ -29,6 +29,12 @@
 <script>
 export default {
   name: "hub",
+  data() {
+    return {
+      title: process.env.VUE_APP_TITLE,
+      secret: process.env.VUE_APP_SECRET_SHIT
+    };
+  },
   computed: {
     age() {
       return new Date(new Date() - new Date(2000, 8, 8)).getFullYear() - 1970;

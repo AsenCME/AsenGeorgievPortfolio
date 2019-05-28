@@ -6,7 +6,7 @@
       <i class="material-icons">arrow_forward</i>
     </div>
 
-    <div class="project" v-for="(project, index) of projects" :key="project.link">
+    <div class="project" v-for="(project, index) of projects" :key="project.projectId">
       <div class="title" :style="{'color': project.color}">
         <span>{{project.title}}</span>
       </div>

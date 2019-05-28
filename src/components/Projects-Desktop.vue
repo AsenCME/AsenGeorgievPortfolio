@@ -55,19 +55,19 @@
     <!-- Mockups (images) -->
     <div class="mockup hidden">
       <!-- Shift numbers by one up and also check out projects mobile to adjust class mesten -->
-      <progressive-img :class="{invis: currentNumber !== 0}" class="image chushka" :src="require('./../assets/mockups/Chushka_T.png')" />
-      <progressive-img :class="{invis: currentNumber !== 0}" class="image chushkas" :src="require('./../assets/mockups/Chushka_S.png')" />
+      <progressive-img :class="{invis: currentProject.projectId !== 'CHU001'}" class="image chushka" :src="currentProject.desktopImgPath1" />
+      <progressive-img :class="{invis: currentProject.projectId !== 'CHU001'}" class="image chushkas" :src="currentProject.desktopImgPath2" />
 
-      <progressive-img :class="{invis: currentNumber !== 1}" class="image" :src="require('./../assets/mockups/Yuitex_L.png')" />
-      <progressive-img :class="{invis: currentNumber !== 1}" class="image yuitexs" :src="require('./../assets/mockups/Yuitex_S.png')" />
+      <progressive-img :class="{invis: currentProject.projectId !== 'YUI002'}" class="image" :src="currentProject.desktopImgPath1" />
+      <progressive-img :class="{invis: currentProject.projectId !== 'YUI002'}" class="image yuitexs" :src="currentProject.desktopImgPath2" />
 
-      <progressive-img :class="{invis: currentNumber !== 2}" class="image hotelup" :src="require('./../assets/mockups/HU_L.png')" />
+      <progressive-img :class="{invis: currentProject.projectId !== 'HOT003'}" class="image hotelup" :src="currentProject.imgPath" />
 
-      <progressive-img :class="{invis: currentNumber !== 3}" class="image itschool" :src="require('./../assets/mockups/ITSchool_T.png')" />
+      <progressive-img :class="{invis: currentProject.projectId !== 'ITS004'}" class="image itschool" :src="currentProject.imgPath" />
 
-      <progressive-img :class="{invis: currentNumber !== 4}" class="image mesten" :src="require('./../assets/mockups/Mesten_D.png')" />
+      <progressive-img :class="{invis: currentProject.projectId !== 'MES005'}" class="image mesten" :src="currentProject.imgPath" />
 
-      <progressive-img :class="{invis: currentNumber !== 5}" class="image kosmos" :src="require('./../assets/mockups/Kosmos_L.png')" />
+      <progressive-img :class="{invis: currentProject.projectId !== 'KOS006'}" class="image kosmos" :src="currentProject.imgPath" />
     </div>
 
     <!-- Button to go Back -->
@@ -97,14 +97,10 @@ export default {
       rows: 20,
       cols: 4,
       currentNumber: 0,
-      totalNumber: 4,
-      projects: this.$store.getters.projects
+      totalNumber: 6,
+      projects: this.$store.getters.projects || [],
+      currentProject: this.$store.getters.projects[0]
     };
-  },
-  computed: {
-    currentProject() {
-      return this.projects[this.currentNumber];
-    }
   },
   methods: {
     // Go to Website Function
@@ -250,6 +246,8 @@ export default {
           this.currentNumber - direction,
           this.totalNumber
         );
+        // XXX: hack maybe
+        this.currentProject = this.projects[this.currentNumber];
 
         this.revealArrows();
         this.revealMainText();

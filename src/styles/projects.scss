@@ -365,7 +365,7 @@
 			}
 		}
 		.text {
-			max-height: 500px;
+			max-height: 50vh;
 			overflow: auto;
 			margin-left: 20px;
 			display: inline-block;
@@ -401,6 +401,7 @@
 
 		&.invis {
 			opacity: 0;
+			// pointer-events: none;
 		}
 	}
 

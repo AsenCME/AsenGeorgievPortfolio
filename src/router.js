@@ -4,6 +4,7 @@ import Home from "./views/Home.vue";
 import Hub from "./views/Hub.vue";
 import Projects from "./views/Projects.vue";
 import Contacts from "./views/Contacts.vue";
+import About from "./views/About.vue";
 
 Vue.use(Router);
 
@@ -33,6 +34,12 @@ export default new Router({
 			name: "projects",
 			component: Projects,
 			meta: { title: "AG | Projects" },
+		},
+		{
+			path: "/about",
+			name: "about",
+			component: About,
+			meta: { title: "AG | Test Page" },
 		},
 	],
 });
